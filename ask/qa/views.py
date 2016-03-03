@@ -5,5 +5,5 @@ from django.http import HttpResponse
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
 
-def test(request, *args, **kwargs):
+def test1(request, *args, **kwargs):
     return HttpResponse('OK1')
