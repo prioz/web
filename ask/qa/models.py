@@ -8,8 +8,8 @@ class Question(models.Model):
 	text = models.TextField()
 	added_at = models.DateTimeField(blank=True)
 	rating =  models.IntegerField()
-	author = models.OneToOneField(User)
-	likes = models.ManyToManyField(User)
+	author = models.ForeignKey(User)
+	likes = models.OneToOneField(User)
 	def __unicode__(self):
 		return self.title
 	def get_absolute_url(self):
@@ -21,12 +21,12 @@ class Question(models.Model):
 class Answer(models.Model):
 	text = models.TextField()
 	added_at = models.DateTimeField(blank=True)
-	question = models.OneToOneField(Question)
-	author = models.OneToOneField(User)
-	likes = models.ManyToManyField(User)
+	question = models.ForeignKey(Question)
+	author = models.ForeignKey(User)
 	def __unicode__(self):
 		return self.text
 	def get_absolute_url(self):
 		return '/answer/%d/' % self.pk
 	class Meta:
 		ordering = ['-added_at']
+
