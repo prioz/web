@@ -15,7 +15,7 @@ class Question(models.Model):
 	def get_absolute_url(self):
 		return '/question/%d/' % self.pk
 	class Meta:
-		ordering = ['-creation_date']
+		ordering = ['-added_at']
 
 
 class Answer(models.Model):
@@ -29,4 +29,4 @@ class Answer(models.Model):
 	def get_absolute_url(self):
 		return '/answer/%d/' % self.pk
 	class Meta:
-		ordering = ['-creation_date']
+		ordering = ['-added_at']
