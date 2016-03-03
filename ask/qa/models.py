@@ -8,7 +8,7 @@ class Question(models.Model):
 	text = models.TextField()
 	added_at = models.DateTimeField(blank=True)
 	rating =  models.IntegerField()
-	author = models.ForeignKey(User)
+	author = models.OneToOneField(User)
 	likes = models.OneToOneField(User)
 	def __unicode__(self):
 		return self.title
